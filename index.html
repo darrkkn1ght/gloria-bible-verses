@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>For My Pretty Princess, Gloria</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
     <style>
         :root {
             /* Light mode colors - Much cooler and sophisticated */
@@ -22,8 +22,6 @@
             --nav-bg: rgba(255, 255, 255, 0.15);
             --special-bg: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(99, 102, 241, 0.06) 50%, rgba(168, 85, 247, 0.04) 100%);
         }
-
-        /* Dark mode colors */
         [data-theme="dark"] {
             --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #4c1d95 75%, #581c87 100%);
             --bg-secondary: rgba(30, 41, 59, 0.9);
@@ -39,13 +37,15 @@
             --nav-bg: rgba(30, 41, 59, 0.95);
             --special-bg: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(167, 139, 250, 0.08) 50%, rgba(196, 181, 253, 0.06) 100%);
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition:
+                background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background: var(--bg-primary);
@@ -54,13 +54,12 @@
             overflow-x: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         /* Enhanced magical background elements */
         .stars {
             position: fixed;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 radial-gradient(1.5px 1.5px at 25px 35px, var(--accent-gold), transparent),
                 radial-gradient(1.5px 1.5px at 45px 75px, var(--accent-primary), transparent),
                 radial-gradient(1px 1px at 85px 45px, var(--accent-gold), transparent),
@@ -72,12 +71,10 @@
             z-index: 1;
             opacity: 0.4;
         }
-
         @keyframes sparkle {
             0% { opacity: 0.3; }
             100% { opacity: 0.6; }
         }
-
         .aurora {
             position: fixed;
             top: -50%;
@@ -89,12 +86,10 @@
             opacity: 0.08;
             z-index: 1;
         }
-
         @keyframes aurora {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
         .floating-orbs {
             position: fixed;
             width: 100px;
@@ -106,17 +101,14 @@
             z-index: 2;
             opacity: 0.2;
         }
-
         .orb-1 { top: 10%; right: 10%; animation-delay: 0s; }
         .orb-2 { top: 50%; left: 5%; animation-delay: 5s; background: radial-gradient(circle at 30% 30%, var(--accent-secondary), transparent); }
         .orb-3 { bottom: 20%; right: 20%; animation-delay: 10s; }
-
         @keyframes float-orb {
             0%, 100% { transform: translate(0, 0) scale(1); }
             33% { transform: translate(30px, -30px) scale(1.1); }
             66% { transform: translate(-20px, 20px) scale(0.9); }
         }
-
         .container {
             max-width: 500px;
             margin: 0 auto;
@@ -124,7 +116,6 @@
             position: relative;
             z-index: 10;
         }
-
         /* Exquisite Navigation */
         .nav-bar {
             position: fixed;
@@ -139,7 +130,6 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 8px 32px var(--shadow-color);
         }
-
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -147,8 +137,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 18px 30px;
+            flex-wrap: wrap;
         }
-
         .nav-logo {
             font-family: 'Dancing Script', cursive;
             font-size: 1.9rem;
@@ -162,19 +152,20 @@
             background-clip: text;
             transition: all 0.3s ease;
             position: relative;
+            cursor: pointer;
+            user-select: none;
         }
-
         .nav-logo:hover {
             transform: scale(1.05);
             filter: drop-shadow(0 0 20px var(--accent-primary));
         }
-
         .nav-center {
             display: flex;
             align-items: center;
             gap: 30px;
+            flex: 1 1 auto;
+            justify-content: center;
         }
-
         .nav-links {
             display: flex;
             list-style: none;
@@ -185,8 +176,8 @@
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-color);
             box-shadow: 0 8px 32px var(--shadow-color);
+            flex-wrap: wrap;
         }
-
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
@@ -197,8 +188,10 @@
             font-weight: 500;
             position: relative;
             overflow: hidden;
+            user-select: none;
+            display: block;
+            white-space: nowrap;
         }
-
         .nav-links a::before {
             content: '';
             position: absolute;
@@ -209,24 +202,20 @@
             background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
             transition: left 0.6s ease;
         }
-
         .nav-links a:hover::before {
             left: 100%;
         }
-
         .nav-links a:hover, .nav-links a.active {
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
             color: white;
             transform: translateY(-3px);
             box-shadow: 0 12px 30px var(--shadow-color);
         }
-
         .nav-controls {
             display: flex;
             align-items: center;
             gap: 18px;
         }
-
         /* Theme Toggle Button */
         .theme-toggle {
             background: var(--bg-card);
@@ -243,24 +232,21 @@
             font-size: 0.9rem;
             font-weight: 500;
             box-shadow: 0 4px 15px var(--shadow-color);
+            user-select: none;
         }
-
         .theme-toggle:hover {
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px var(--shadow-color);
         }
-
         .theme-icon {
             font-size: 1.2rem;
             transition: transform 0.4s ease;
         }
-
         .theme-toggle:hover .theme-icon {
             transform: rotate(180deg) scale(1.1);
         }
-
         /* Mobile menu */
         .mobile-menu-btn {
             display: none;
@@ -273,25 +259,33 @@
             backdrop-filter: blur(20px);
             transition: all 0.3s ease;
             font-size: 1.1rem;
+            user-select: none;
         }
-
         .mobile-menu-btn:hover {
             background: var(--accent-primary);
             color: white;
             transform: scale(1.05);
         }
-
+        /* Show mobile nav-links when active */
+        .nav-links.mobile-active {
+            display: flex !important;
+            flex-direction: column;
+            width: 100%;
+            margin-top: 10px;
+            gap: 10px;
+            border-radius: 15px;
+            box-shadow: 0 12px 30px var(--shadow-color);
+            cursor: default;
+        }
         /* Page content */
         .page {
             display: none;
             margin-top: 110px;
         }
-
         .page.active {
             display: block;
             animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -302,7 +296,6 @@
                 transform: translateY(0);
             }
         }
-
         /* Enhanced Home page styles */
         .hero {
             text-align: center;
@@ -316,7 +309,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -327,12 +319,10 @@
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-gold));
             animation: glow 2s ease-in-out infinite alternate;
         }
-
         @keyframes glow {
             0% { opacity: 0.6; }
             100% { opacity: 1; }
         }
-
         .hero-title {
             font-family: 'Dancing Script', cursive;
             font-size: 3.4rem;
@@ -346,12 +336,10 @@
             background-clip: text;
             animation: gradient-shift 3s ease-in-out infinite alternate;
         }
-
         @keyframes gradient-shift {
             0% { filter: hue-rotate(0deg); }
             100% { filter: hue-rotate(15deg); }
         }
-
         .hero-subtitle {
             font-size: 1.3rem;
             color: var(--text-secondary);
@@ -359,7 +347,6 @@
             text-shadow: 0 2px 15px var(--shadow-color);
             font-weight: 400;
         }
-
         .hero-message {
             font-family: 'Dancing Script', cursive;
             font-size: 1.4rem;
@@ -368,14 +355,12 @@
             text-shadow: 0 2px 20px var(--shadow-color);
             font-weight: 600;
         }
-
         .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 35px;
         }
-
         .category-card {
             background: var(--bg-card);
             border-radius: 30px;
@@ -388,8 +373,8 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            user-select: none;
         }
-
         .category-card::before {
             content: '';
             position: absolute;
@@ -400,28 +385,23 @@
             background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
             transition: left 0.7s ease;
         }
-
         .category-card:hover::before {
             left: 100%;
         }
-
         .category-card:hover {
             transform: translateY(-10px) scale(1.03);
             box-shadow: 0 30px 80px var(--shadow-color);
             border-color: var(--accent-primary);
         }
-
         .category-icon {
             font-size: 3rem;
             margin-bottom: 22px;
             filter: drop-shadow(0 4px 20px var(--shadow-color));
             transition: transform 0.4s ease;
         }
-
         .category-card:hover .category-icon {
             transform: scale(1.15) rotate(8deg);
         }
-
         .category-title {
             font-family: 'Dancing Script', cursive;
             font-size: 1.7rem;
@@ -430,14 +410,12 @@
             text-shadow: 0 2px 15px var(--shadow-color);
             font-weight: 600;
         }
-
         .category-desc {
             color: var(--text-secondary);
             font-size: 1rem;
             line-height: 1.6;
             font-weight: 400;
         }
-
         /* Enhanced content page styles */
         .header {
             text-align: center;
@@ -449,7 +427,6 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 20px 50px var(--shadow-color);
         }
-
         .main-title {
             font-family: 'Dancing Script', cursive;
             font-size: 3rem;
@@ -462,7 +439,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .subtitle {
             font-family: 'Inter', sans-serif;
             font-size: 1.15rem;
@@ -471,7 +447,6 @@
             text-shadow: 0 2px 10px var(--shadow-color);
             font-weight: 400;
         }
-
         .section {
             margin-bottom: 40px;
             background: var(--bg-card);
@@ -482,13 +457,11 @@
             box-shadow: 0 15px 45px var(--shadow-color);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         .section:hover {
             transform: translateY(-6px);
             box-shadow: 0 25px 70px var(--shadow-color);
             border-color: var(--accent-primary);
         }
-
         .section-title {
             font-family: 'Dancing Script', cursive;
             font-size: 1.8rem;
@@ -500,12 +473,10 @@
             align-items: center;
             gap: 15px;
         }
-
         .verse-list {
             list-style: none;
             padding: 0;
         }
-
         .verse-item, .prayer-text, .quote-text, .affirmation-text {
             background: var(--bg-verse);
             margin: 12px 0;
@@ -519,26 +490,22 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 400;
         }
-
         .verse-item:hover, .prayer-text:hover, .quote-text:hover, .affirmation-text:hover {
             background: var(--bg-card);
             border-left-color: var(--accent-gold);
             transform: translateX(10px);
             box-shadow: 0 8px 25px var(--shadow-color);
         }
-
         .prayer-text {
             border-left-color: var(--accent-secondary);
             font-style: italic;
             text-align: left;
         }
-
         .quote-text {
             border-left-color: var(--accent-gold);
             position: relative;
             padding-left: 35px;
         }
-
         .quote-text::before {
             content: '"';
             position: absolute;
@@ -548,20 +515,17 @@
             color: var(--accent-gold);
             opacity: 0.7;
         }
-
         .affirmation-text {
             border-left-color: var(--accent-primary);
             font-weight: 500;
             text-align: center;
         }
-
         .special-section {
             background: var(--special-bg);
             border: 2px solid var(--accent-secondary);
             position: relative;
             overflow: hidden;
         }
-
         .special-section::after {
             content: '';
             position: absolute;
@@ -571,13 +535,12 @@
             bottom: -50%;
             background: conic-gradient(from 0deg, transparent, rgba(139, 92, 246, 0.08), transparent);
             animation: rotate 10s linear infinite;
+            pointer-events: none;
         }
-
         @keyframes rotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
         .special-note {
             font-family: 'Dancing Script', cursive;
             font-size: 1.3rem;
@@ -590,70 +553,67 @@
             position: relative;
             z-index: 1;
         }
-
         /* Responsive design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                width: 100%;
             }
-            
             .mobile-menu-btn {
                 display: block;
             }
-            
             .nav-center {
-                display: none;
+                display: block;
+                width: 100%;
             }
-            
             .hero-title {
                 font-size: 2.8rem;
             }
-            
             .category-grid {
                 grid-template-columns: 1fr;
             }
-            
             .nav-container {
                 padding: 15px 20px;
             }
         }
-
         @media (max-width: 480px) {
             .container {
                 padding: 25px 18px;
             }
-            
             .hero {
                 padding: 40px 25px;
             }
-            
             .hero-title {
                 font-size: 2.5rem;
             }
-            
             .main-title {
                 font-size: 2.5rem;
             }
-            
             .section-title {
                 font-size: 1.6rem;
             }
-            
             .verse-item, .prayer-text, .quote-text, .affirmation-text {
                 font-size: 0.95rem;
                 padding: 14px 18px;
             }
-            
             .category-card {
                 padding: 30px 25px;
             }
         }
-
-        /* Smooth transitions for theme switching */
-        * {
-            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                        color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                        border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Sparkle animation for interactive sparkles */
+        @keyframes sparkleEffect {
+            0% {
+                opacity: 1;
+                transform: scale(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1) rotate(180deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0) rotate(360deg);
+            }
         }
     </style>
 </head>
@@ -668,30 +628,30 @@
     <!-- Enhanced Navigation -->
     <nav class="nav-bar">
         <div class="nav-container">
-            <a href="#" class="nav-logo" onclick="showPage('home')">💖 Gloria's Haven</a>
+            <a href="#" class="nav-logo" onclick="showPage('home'); closeMobileMenu(); return false;">💖 Gloria's Haven</a>
             
             <div class="nav-center">
-                <ul class="nav-links">
-                    <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
-                    <li><a href="#" onclick="showPage('verses')">Bible Verses</a></li>
-                    <li><a href="#" onclick="showPage('prayers')">Prayers</a></li>
-                    <li><a href="#" onclick="showPage('quotes')">Quotes</a></li>
-                    <li><a href="#" onclick="showPage('affirmations')">Affirmations</a></li>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#" onclick="showPage('home'); closeMobileMenu(); return false;" class="active">Home</a></li>
+                    <li><a href="#" onclick="showPage('verses'); closeMobileMenu(); return false;">Bible Verses</a></li>
+                    <li><a href="#" onclick="showPage('prayers'); closeMobileMenu(); return false;">Prayers</a></li>
+                    <li><a href="#" onclick="showPage('quotes'); closeMobileMenu(); return false;">Quotes</a></li>
+                    <li><a href="#" onclick="showPage('affirmations'); closeMobileMenu(); return false;">Affirmations</a></li>
                 </ul>
             </div>
 
             <div class="nav-controls">
-                <button class="theme-toggle" onclick="toggleTheme()">
-                    <span class="theme-icon">🌙</span>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <span class="theme-icon" aria-hidden="true">🌙</span>
                     <span class="theme-text">Dark</span>
                 </button>
-                <button class="mobile-menu-btn">☰</button>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">☰</button>
             </div>
         </div>
     </nav>
 
     <!-- Home Page -->
-    <div id="home" class="page active">
+    <div id="home" class="page active" tabindex="-1">
         <div class="container">
             <div class="hero">
                 <h1 class="hero-title">❤️ For My Pretty Princess, Gloria</h1>
@@ -700,26 +660,26 @@
             </div>
 
             <div class="category-grid">
-                <div class="category-card" onclick="showPage('verses')">
-                    <div class="category-icon">📖</div>
+                <div class="category-card" tabindex="0" role="button" onclick="showPage('verses'); closeMobileMenu();" onkeypress="if(event.key==='Enter'){showPage('verses'); closeMobileMenu();}">
+                    <div class="category-icon" aria-hidden="true">📖</div>
                     <h3 class="category-title">Bible Verses</h3>
                     <p class="category-desc">Carefully selected verses for every emotion and season of your heart</p>
                 </div>
 
-                <div class="category-card" onclick="showPage('prayers')">
-                    <div class="category-icon">🙏</div>
+                <div class="category-card" tabindex="0" role="button" onclick="showPage('prayers'); closeMobileMenu();" onkeypress="if(event.key==='Enter'){showPage('prayers'); closeMobileMenu();}">
+                    <div class="category-icon" aria-hidden="true">🙏</div>
                     <h3 class="category-title">Beautiful Prayers</h3>
                     <p class="category-desc">Heartfelt prayers to guide you through life's journey</p>
                 </div>
 
-                <div class="category-card" onclick="showPage('quotes')">
-                    <div class="category-icon">✨</div>
+                <div class="category-card" tabindex="0" role="button" onclick="showPage('quotes'); closeMobileMenu();" onkeypress="if(event.key==='Enter'){showPage('quotes'); closeMobileMenu();}">
+                    <div class="category-icon" aria-hidden="true">✨</div>
                     <h3 class="category-title">Inspirational Quotes</h3>
                     <p class="category-desc">Uplifting words to brighten your day and strengthen your spirit</p>
                 </div>
 
-                <div class="category-card" onclick="showPage('affirmations')">
-                    <div class="category-icon">💝</div>
+                <div class="category-card" tabindex="0" role="button" onclick="showPage('affirmations'); closeMobileMenu();" onkeypress="if(event.key==='Enter'){showPage('affirmations'); closeMobileMenu();}">
+                    <div class="category-icon" aria-hidden="true">💝</div>
                     <h3 class="category-title">Daily Affirmations</h3>
                     <p class="category-desc">Positive declarations to start each day with confidence</p>
                 </div>
@@ -728,13 +688,13 @@
     </div>
 
     <!-- Bible Verses Page -->
-    <div id="verses" class="page">
+    <div id="verses" class="page" tabindex="-1">
+        <!-- content unchanged -->
         <div class="container">
             <div class="header">
                 <h1 class="main-title">📖 Bible Verses</h1>
                 <p class="subtitle">A lovingly crafted collection for every season of your heart</p>
             </div>
-
             <div class="section">
                 <h2 class="section-title">🌸 When You Feel Anxious</h2>
                 <ul class="verse-list">
@@ -746,7 +706,6 @@
                     <li class="verse-item">Matthew 6:34</li>
                 </ul>
             </div>
-
             <div class="section">
                 <h2 class="section-title">💔 When Your Heart Feels Broken</h2>
                 <ul class="verse-list">
@@ -758,7 +717,6 @@
                     <li class="verse-item">Proverbs 3:5–6</li>
                 </ul>
             </div>
-
             <div class="section">
                 <h2 class="section-title">😢 When You're Sad</h2>
                 <ul class="verse-list">
@@ -770,7 +728,6 @@
                     <li class="verse-item">Isaiah 53:4–5</li>
                 </ul>
             </div>
-
             <div class="section">
                 <h2 class="section-title">😞 When You Feel Alone</h2>
                 <ul class="verse-list">
@@ -782,7 +739,6 @@
                     <li class="verse-item">Matthew 28:20</li>
                 </ul>
             </div>
-
             <div class="section">
                 <h2 class="section-title">😡 When You Feel Angry</h2>
                 <ul class="verse-list">
@@ -794,7 +750,6 @@
                     <li class="verse-item">Proverbs 29:11</li>
                 </ul>
             </div>
-
             <div class="section special-section">
                 <h2 class="section-title">💖 Special Verses Just for You</h2>
                 <ul class="verse-list">
@@ -809,41 +764,37 @@
     </div>
 
     <!-- Prayers Page -->
-    <div id="prayers" class="page">
+    <div id="prayers" class="page" tabindex="-1">
+        <!-- content unchanged -->
         <div class="container">
             <div class="header">
                 <h1 class="main-title">🙏 Beautiful Prayers</h1>
                 <p class="subtitle">Heartfelt conversations with God, crafted with love for you</p>
             </div>
-
             <div class="section">
                 <h2 class="section-title">🌅 Morning Prayer</h2>
                 <div class="prayer-text">
                     Dear Heavenly Father, as Gloria opens her eyes to this new day, fill her heart with Your peace and joy. Guide her steps, protect her from harm, and let Your light shine through her beautiful spirit. May she feel Your presence with every breath and know that she is cherished beyond measure. Amen.
                 </div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">🌙 Evening Prayer</h2>
                 <div class="prayer-text">
                     Loving God, as this day comes to an end, we thank You for watching over Gloria. Wash away any worries or stress from her day. Grant her peaceful sleep and sweet dreams. Let her rest knowing she is safe in Your loving arms and wake tomorrow refreshed and renewed. Amen.
                 </div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">💪 Prayer for Strength</h2>
                 <div class="prayer-text">
                     Mighty God, when Gloria feels weak or overwhelmed, be her strength. When the road seems difficult, carry her through. Remind her that she can do all things through Christ who strengthens her. Fill her with courage, determination, and the knowledge that she is never alone. Amen.
                 </div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">❤️ Prayer for Love and Relationships</h2>
                 <div class="prayer-text">
                     God of Love, surround Gloria with people who cherish and support her. Help her to love others as You love her - unconditionally and faithfully. Bless her relationships with joy, understanding, and deep connection. May she always feel the warmth of love in her life. Amen.
                 </div>
             </div>
-
             <div class="section special-section">
                 <h2 class="section-title">✨ Special Prayer Just for Gloria</h2>
                 <div class="prayer-text">
@@ -855,13 +806,13 @@
     </div>
 
     <!-- Quotes Page -->
-    <div id="quotes" class="page">
+    <div id="quotes" class="page" tabindex="-1">
+        <!-- content unchanged -->
         <div class="container">
             <div class="header">
                 <h1 class="main-title">✨ Inspirational Quotes</h1>
                 <p class="subtitle">Words of wisdom to uplift your beautiful spirit</p>
             </div>
-
             <div class="section">
                 <h2 class="section-title">🌟 About Your Worth</h2>
                 <div class="quote-text">You are braver than you believe, stronger than you seem, and more loved than you know.</div>
@@ -869,7 +820,6 @@
                 <div class="quote-text">You were born to stand out, not to fit in. Embrace your uniqueness.</div>
                 <div class="quote-text">The world needs exactly what you have to offer.</div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">💫 About Dreams and Goals</h2>
                 <div class="quote-text">Dreams don't work unless you do. Keep pushing forward, beautiful.</div>
@@ -877,7 +827,6 @@
                 <div class="quote-text">Your current situation is not your final destination.</div>
                 <div class="quote-text">Every expert was once a beginner. Every pro was once an amateur.</div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">🌸 About Inner Beauty</h2>
                 <div class="quote-text">Kindness is a language which the deaf can hear and the blind can see.</div>
@@ -885,7 +834,6 @@
                 <div class="quote-text">Your smile is your logo, your personality is your business card.</div>
                 <div class="quote-text">Confidence is the most beautiful thing you can wear.</div>
             </div>
-
             <div class="section special-section">
                 <h2 class="section-title">💖 Special Quotes for Gloria</h2>
                 <div class="quote-text">Gloria, you light up every room you enter with your beautiful heart.</div>
@@ -897,13 +845,13 @@
     </div>
 
     <!-- Affirmations Page -->
-    <div id="affirmations" class="page">
+    <div id="affirmations" class="page" tabindex="-1">
+        <!-- content unchanged -->
         <div class="container">
             <div class="header">
                 <h1 class="main-title">💝 Daily Affirmations</h1>
                 <p class="subtitle">Positive declarations to start each day with confidence</p>
             </div>
-
             <div class="section">
                 <h2 class="section-title">🌅 Morning Affirmations</h2>
                 <div class="affirmation-text">I am loved, I am worthy, and I am enough just as I am.</div>
@@ -912,7 +860,6 @@
                 <div class="affirmation-text">My heart is full of love, and I share that love with the world.</div>
                 <div class="affirmation-text">I trust God's plan for my life and walk confidently in His purpose.</div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">💪 Strength Affirmations</h2>
                 <div class="affirmation-text">I am stronger than any challenge that comes my way.</div>
@@ -921,7 +868,6 @@
                 <div class="affirmation-text">I am resilient, brave, and beautifully made.</div>
                 <div class="affirmation-text">Every setback is a setup for a comeback.</div>
             </div>
-
             <div class="section">
                 <h2 class="section-title">✨ Beauty Affirmations</h2>
                 <div class="affirmation-text">I am beautiful inside and out, created perfectly by God.</div>
@@ -930,7 +876,6 @@
                 <div class="affirmation-text">I am unique and special in ways that no one else can be.</div>
                 <div class="affirmation-text">My worth is not determined by others but by God who made me.</div>
             </div>
-
             <div class="section special-section">
                 <h2 class="section-title">👑 Special Affirmations for Princess Gloria</h2>
                 <div class="affirmation-text">I am Gloria, and I bring glory wherever I go.</div>
@@ -942,105 +887,109 @@
         </div>
     </div>
 
-    <script>
-        // Theme toggle functionality
-        function toggleTheme() {
-            const body = document.body;
-            const themeIcon = document.querySelector('.theme-icon');
-            const themeText = document.querySelector('.theme-text');
-            
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Dark';
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Light';
-            }
+   <script>
+    // Theme toggle functionality
+    function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.querySelector('.theme-icon');
+        const themeText = document.querySelector('.theme-text');
+        
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Dark';
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Light';
         }
+    }
 
-        // Page navigation functionality
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Update navigation active state
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Find and activate the corresponding nav link
-            const activeLink = document.querySelector(`[onclick="showPage('${pageId}')"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Initialize page
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set initial theme based on user preference
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                toggleTheme();
-            }
+    // Page navigation functionality
+    function showPage(pageId) {
+        // Hide all pages
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => {
+            page.classList.remove('active');
+            page.setAttribute('aria-hidden', 'true');
         });
 
-        // Add some interactive sparkle effects
-        document.addEventListener('mousemove', function(e) {
-            if (Math.random() > 0.98) {
-                createSparkle(e.clientX, e.clientY);
-            }
+        // Show selected page with focus for accessibility
+        const selectedPage = document.getElementById(pageId);
+        if (selectedPage) {
+            selectedPage.classList.add('active');
+            selectedPage.setAttribute('aria-hidden', 'false');
+            selectedPage.focus();
+        }
+        
+        // Update navigation active state
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.classList.remove('active');
         });
 
-        function createSparkle(x, y) {
-            const sparkle = document.createElement('div');
-            sparkle.style.position = 'fixed';
-            sparkle.style.left = x + 'px';
-            sparkle.style.top = y + 'px';
-            sparkle.style.width = '4px';
-            sparkle.style.height = '4px';
-            sparkle.style.background = 'var(--accent-gold)';
-            sparkle.style.borderRadius = '50%';
-            sparkle.style.pointerEvents = 'none';
-            sparkle.style.zIndex = '1000';
-            sparkle.style.animation = 'sparkleEffect 1s ease-out forwards';
-            
-            document.body.appendChild(sparkle);
-            
-            setTimeout(() => {
-                sparkle.remove();
-            }, 1000);
+        // Find and activate the corresponding nav link
+        const activeLink = document.querySelector(`.nav-links a[onclick*="${pageId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
         }
 
-        // Add sparkle animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes sparkleEffect {
-                0% {
-                    opacity: 1;
-                    transform: scale(0) rotate(0deg);
-                }
-                50% {
-                    opacity: 1;
-                    transform: scale(1) rotate(180deg);
-                }
-                100% {
-                    opacity: 0;
-                    transform: scale(0) rotate(360deg);
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Close mobile menu
+        closeMobileMenu();
+    }
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('mobile-active');
+    }
+
+    // Close mobile menu (on page navigation)
+    function closeMobileMenu() {
+        const navLinks = document.getElementById('nav-links');
+        if (navLinks.classList.contains('mobile-active')) {
+            navLinks.classList.remove('mobile-active');
+        }
+    }
+
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set initial theme based on user preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            toggleTheme();
+        }
+    });
+
+    // Add some interactive sparkle effects
+    document.addEventListener('mousemove', function(e) {
+        // Lower chance on mobile for performance
+        if (window.innerWidth > 768 && Math.random() > 0.98) {
+            createSparkle(e.clientX, e.clientY);
+        }
+    });
+
+    function createSparkle(x, y) {
+        const sparkle = document.createElement('div');
+        sparkle.style.position = 'fixed';
+        sparkle.style.left = x + 'px';
+        sparkle.style.top = y + 'px';
+        sparkle.style.width = '4px';
+        sparkle.style.height = '4px';
+        sparkle.style.background = 'var(--accent-gold)';
+        sparkle.style.borderRadius = '50%';
+        sparkle.style.pointerEvents = 'none';
+        sparkle.style.zIndex = '1000';
+        sparkle.style.animation = 'sparkleEffect 1s ease-out forwards';
+        
+        document.body.appendChild(sparkle);
+        
+        setTimeout(() => {
+            sparkle.remove();
+        }, 1000);
+    }
+</script>
 </body>
 </html>
